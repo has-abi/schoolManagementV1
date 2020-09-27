@@ -13,13 +13,19 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * 
+ * @author Abida Hassan
+ * @version 1.0
+ *
+ */
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Parent {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String cin;
 	@OneToOne

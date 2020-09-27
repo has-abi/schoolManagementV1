@@ -8,6 +8,12 @@ import org.springframework.http.ResponseEntity;
 
 import com.sm.schoolManagement.bean.AppUser;
 
+/**
+ * 
+ * @author Abida Hassan
+ * @version 1.0
+ *
+ */
 public interface AppUserService {
 	AppUser findByUsername(String username);
 
@@ -22,6 +28,5 @@ public interface AppUserService {
 	ResponseEntity<AppUser> delete(Long id);
 	
 	ResponseEntity<List<AppUser>> search(Specification<AppUser> spec);
-	
-	
+
 }

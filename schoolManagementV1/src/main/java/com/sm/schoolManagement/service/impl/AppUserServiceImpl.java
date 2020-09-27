@@ -15,12 +15,18 @@ import com.sm.schoolManagement.bean.AppUser;
 import com.sm.schoolManagement.dao.AppUserDao;
 import com.sm.schoolManagement.service.facade.AppUserService;
 
+/**
+ * 
+ * @author Abida Hassan
+ * @version 1.0
+ *
+ */
 @Service
-public class AppUserServiceImpl implements AppUserService{
-	
+public class AppUserServiceImpl implements AppUserService {
+
 	@Autowired
 	private AppUserDao appUserDao;
-	
+
 	@Override
 	public AppUser findByUsername(String username) {
 		return appUserDao.findByUsername(username);
@@ -33,11 +39,11 @@ public class AppUserServiceImpl implements AppUserService{
 
 	@Override
 	public Page<AppUser> findAllWithPagination(int page, int size, String sort) {
-				if(sort == "desc") {
-					return appUserDao.findAll(PageRequest.of(page, size, Sort.by(Sort.Direction.DESC,"id")));
-				}else {
-					return appUserDao.findAll(PageRequest.of(page, size, Sort.by(Sort.Direction.ASC,"id")));
-				}
+		if (sort == "desc") {
+			return appUserDao.findAll(PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "id")));
+		} else {
+			return appUserDao.findAll(PageRequest.of(page, size, Sort.by(Sort.Direction.ASC, "id")));
+		}
 	}
 
 	@Override
@@ -59,7 +65,7 @@ public class AppUserServiceImpl implements AppUserService{
 
 	@Override
 	public ResponseEntity<List<AppUser>> search(Specification<AppUser> spec) {
-		return new ResponseEntity<List<AppUser>>(appUserDao.findAll(Specification.where(spec)),HttpStatus.OK);
+		return new ResponseEntity<List<AppUser>>(appUserDao.findAll(Specification.where(spec)), HttpStatus.OK);
 	}
 
 }

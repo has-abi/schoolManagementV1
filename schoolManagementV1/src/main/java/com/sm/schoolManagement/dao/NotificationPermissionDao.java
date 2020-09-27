@@ -6,7 +6,14 @@ import org.springframework.stereotype.Repository;
 
 import com.sm.schoolManagement.bean.NotificationPermission;
 
+/**
+ * 
+ * @author Abida Hassan
+ * @version 1.0
+ *
+ */
 @Repository
-public interface NotificationPermissionDao extends JpaRepository<NotificationPermission, Long>,JpaSpecificationExecutor<NotificationPermission>{
+public interface NotificationPermissionDao
+		extends JpaRepository<NotificationPermission, Long>, JpaSpecificationExecutor<NotificationPermission> {
 
 }

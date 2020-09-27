@@ -8,18 +8,24 @@ import org.springframework.http.ResponseEntity;
 
 import com.sm.schoolManagement.bean.Parent;
 
+/**
+ * 
+ * @author Abida Hassan
+ * @version 1.0
+ *
+ */
 public interface ParentService {
 	Parent findByCin(String cin);
-	
+
 	List<Parent> findAll();
-	
-	Page<Parent> findAllWithPagination(int page,int size,String sort);
-	
+
+	Page<Parent> findAllWithPagination(int page, int size, String sort);
+
 	ResponseEntity<Parent> Create(Parent parent);
-	
+
 	ResponseEntity<Parent> update(Parent parent);
-	
+
 	ResponseEntity<Parent> deleteByCin(String Cin);
-	
+
 	ResponseEntity<List<Parent>> search(Specification<Parent> spec);
 }

@@ -1,38 +1,26 @@
 package com.sm.schoolManagement.bean;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * 
- * @author Abida Hassan
- * @version 1.0
- *
- */
-@Entity
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class Etudiant {
+@AllArgsConstructor
+@Entity
+public class Devoir {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	private String cne;
-	@ManyToMany
-	private List<Professeur> professeurs;
 	@ManyToOne
-	private Parent parent;
-	@OneToOne
-	private AppUser appUser;
+	private MatiereItem matiereItem;
+	private String description;
+	private String fileName;
+	private boolean deleted;
 }

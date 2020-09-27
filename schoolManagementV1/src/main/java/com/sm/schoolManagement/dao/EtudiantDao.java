@@ -8,8 +8,16 @@ import org.springframework.stereotype.Repository;
 
 import com.sm.schoolManagement.bean.Etudiant;
 
+
+/**
+ * 
+ * @author Abida Hassan
+ * @version 1.0
+ *
+ */
 @Repository
-public interface EtudiantDao extends JpaRepository<Etudiant, Long>,JpaSpecificationExecutor<Etudiant>{
+public interface EtudiantDao extends JpaRepository<Etudiant, Long>, JpaSpecificationExecutor<Etudiant> {
 	Etudiant findByCne(String cne);
+
 	List<Etudiant> findByParentCin(String cin);
 }

@@ -17,16 +17,22 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * 
+ * @author Abida Hassan
+ * @version 1.0
+ *
+ */
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Professeur {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	@Column(unique = true,nullable = false)
-	private String cni;
+	@Column(unique = true, nullable = false)
+	private String cin;
 	private double salaire;
 	@Temporal(TemporalType.DATE)
 	private Date dateEmbauche;

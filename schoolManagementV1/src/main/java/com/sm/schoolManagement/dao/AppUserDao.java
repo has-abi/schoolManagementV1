@@ -6,7 +6,13 @@ import org.springframework.stereotype.Repository;
 
 import com.sm.schoolManagement.bean.AppUser;
 
+/**
+ * 
+ * @author Abida Hassan
+ * @version 1.0
+ *
+ */
 @Repository
-public interface AppUserDao extends JpaRepository<AppUser, Long>,JpaSpecificationExecutor<AppUser> {
+public interface AppUserDao extends JpaRepository<AppUser, Long>, JpaSpecificationExecutor<AppUser> {
 	AppUser findByUsername(String username);
 }

@@ -6,7 +6,13 @@ import org.springframework.stereotype.Repository;
 
 import com.sm.schoolManagement.bean.Role;
 
+/**
+ * 
+ * @author Abida Hassan
+ * @version 1.0
+ *
+ */
 @Repository
-public interface RoleDao extends JpaRepository<Role, Long>,JpaSpecificationExecutor<Role> {
+public interface RoleDao extends JpaRepository<Role, Long>, JpaSpecificationExecutor<Role> {
 	Role findByLibelle(String libelle);
 }
