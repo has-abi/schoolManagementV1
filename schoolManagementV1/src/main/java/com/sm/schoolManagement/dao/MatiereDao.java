@@ -9,5 +9,5 @@ import com.sm.schoolManagement.bean.Matiere;
 @Repository
 public interface MatiereDao extends JpaRepository<Matiere, Long>{
 	Optional<Matiere> findById(Long id);
-
+	Matiere findByLibelleAndNiveau(String libelle, String niveau);
 }

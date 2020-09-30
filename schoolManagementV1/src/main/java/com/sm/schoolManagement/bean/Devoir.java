@@ -22,5 +22,6 @@ public class Devoir {
 	private MatiereItem matiereItem;
 	private String description;
 	private String fileName;
+	private String fileUrl;
 	private boolean deleted;
 }

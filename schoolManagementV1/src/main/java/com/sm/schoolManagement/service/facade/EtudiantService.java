@@ -31,4 +31,5 @@ public interface EtudiantService {
 	ResponseEntity<Etudiant> deleteByCne(String cne);
 
 	ResponseEntity<List<Etudiant>> search(Specification<Etudiant> spec);
+	public int listeDesEtudiantsExcel();
 }

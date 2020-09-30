@@ -29,5 +29,7 @@ public class MatiereItem {
 	private Cours cours;
 	@ManyToOne
 	private Matiere matiere;
+	@ManyToOne
+	private Local local;
 	private boolean deleted;
 }

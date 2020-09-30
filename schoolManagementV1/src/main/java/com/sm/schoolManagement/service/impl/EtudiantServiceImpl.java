@@ -1,7 +1,13 @@
 package com.sm.schoolManagement.service.impl;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.List;
 
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -62,6 +68,33 @@ public class EtudiantServiceImpl implements EtudiantService {
 			return etudiantDao.findAll(PageRequest.of(page, size));
 		}
 	}
+	public int listeDesEtudiantsExcel() {
+		Workbook workbook = new XSSFWorkbook();
+	      Sheet sheet = workbook.createSheet("Liste employes");
+		List<Etudiant> etudiants = findAll();
+		Row header = sheet.createRow(0);
+	      header.createCell(0).setCellValue("etudiant cne");
+	      header.createCell(1).setCellValue("parent cin");
+	  
+	      int rowNum = 1;
+	     for (Etudiant etudiant : etudiants) {
+	         Row row = sheet.createRow(rowNum++);
+	         row.createCell(0).setCellValue(etudiant.getCne());
+	         row.createCell(1).setCellValue(etudiant.getParent().getCin());
+		}
+	     String fileLocation = "C:/Users/hp/Desktop/";
+	     try {
+		     FileOutputStream outputStream = new FileOutputStream("Liste etudiant.xlsx");
+			workbook.write(outputStream);
+		     workbook.close();
+
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	     return 1;
+	}
+
 
 	@Override
 	public ResponseEntity<Etudiant> create(Etudiant etudiant) {

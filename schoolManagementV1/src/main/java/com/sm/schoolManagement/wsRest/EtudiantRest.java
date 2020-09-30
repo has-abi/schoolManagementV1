@@ -34,6 +34,11 @@ import io.swagger.annotations.ApiOperation;
 public class EtudiantRest {
 	@Autowired
 	private EtudiantService etudiantService;
+	
+	@GetMapping("/listeDesEtudiantsExcel")
+	public int listeDesEtudiantsExcel() {
+		return etudiantService.listeDesEtudiantsExcel();
+	}
 
 	@ApiOperation(value = "Chercher un étudiant en se basant sur leur attributs")
 	@GetMapping("/etudiants")
